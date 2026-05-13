@@ -1,0 +1,5 @@
+*.txt
+.hypothesis
+__pycache__
+venv
+schemathesis-report

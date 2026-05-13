@@ -1,0 +1,10 @@
+[checks.positive_data_acceptance]
+expected-statuses = ["2XX", "400", "404", "422", "503"]
+
+# Disable unsupported method testing entirely
+[phases.coverage]
+unexpected-methods = []
+
+[generation]
+allow-extra-parameters = false
+unique-inputs = true

@@ -1,0 +1,146 @@
+openapi: 3.1.0
+info:
+  title: My API
+  description: "API"
+  version: v1
+servers:
+- url: http://127.0.0.1:8080
+paths:
+  /point:
+    parameters:
+    - name: lat
+      in: query
+      required: true
+      schema:
+        type: number
+        description: Latitude
+        examples:
+        - 0
+        maximum: 9e+1
+        minimum: -9e+1
+      description: WGS 84 Standard Latitude
+    - name: lon
+      in: query
+      required: true
+      schema:
+        type: number
+        description: Longitude
+        examples:
+        - 0
+        maximum: 1.8e+2
+        minimum: -1.8e+2
+      description: WGS 84 Standard Longitude
+    - name: asl
+      in: query
+      schema:
+        type: number
+        default: 0e+0
+        description: Height above sea level
+        examples:
+        - 0e+0
+        maximum: 9e+3
+        minimum: -5e+2
+      description: Height above sea level
+    - name: maxHeightDiff
+      in: query
+      schema:
+        type: number
+        format: float
+        maximum: 1e+3
+        minimum: 1e+0
+      description: Maximum height difference
+    - name: maxDistance
+      in: query
+      schema:
+        type: number
+        format: float
+        default: 1e+2
+        examples:
+        - 1e+2
+        maximum: 1e+4
+        minimum: 1e+0
+      description: Maximum distance
+    - name: nNeighbors
+      in: query
+      schema:
+        type: integer
+        default: 5
+        examples:
+        - 5
+        maximum: 100
+        minimum: 1
+      description: Maximum number of neighbors
+    get:
+      summary: Nearest Points
+      description: Get nearest points
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+              #   items:
+              #     type: object
+              #     properties:
+              #       type:
+              #         type: string
+              #         description: The type
+              #       id:
+              #         type: string
+              #         description: The id
+              #       name:
+              #         type: string
+              #         description: The name
+              #       lat:
+              #         type: number
+              #         description: Latitude
+              #         maximum: 9e+1
+              #         minimum: -9e+1
+              #       lon:
+              #         type: number
+              #         description: Longitude
+              #         maximum: 1.8e+2
+              #         minimum: -1.8e+2
+              #       asl:
+              #         type:
+              #         - number
+              #         - 'null'
+              #         description: Meters above Sea-Level
+              #       distanceKm:
+              #         type: number
+              #         description: Kilometer distance from the point
+              #     required:
+              #     - type
+              #     - id
+              #     - name
+              #     - lat
+              #     - lon
+              #     - asl
+              #     - distanceKm
+              #   uniqueItems: true
+              # examples:
+              #   Example Nearest:
+              #     summary: Example Nearest
+              #     description: Example of a point
+              #     value:
+              #     - id: id1
+              #       lat: 4.7558399e+1
+              #       name: name1
+              #       type: type1
+              #       asl: 279
+              #       distanceKm: 0
+              #       lon: 7.57327e+0
+              #     - id: id2
+              #       lat: 0
+              #       name: name2
+              #       type: type2
+              #       asl: null
+              #       distanceKm: 5.3203e+3
+              #       lon: 0
+        422:
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Bad Request
