@@ -80,64 +80,6 @@ paths:
             application/json:
               schema:
                 type: array
-              #   items:
-              #     type: object
-              #     properties:
-              #       type:
-              #         type: string
-              #         description: The type
-              #       id:
-              #         type: string
-              #         description: The id
-              #       name:
-              #         type: string
-              #         description: The name
-              #       lat:
-              #         type: number
-              #         description: Latitude
-              #         maximum: 9e+1
-              #         minimum: -9e+1
-              #       lon:
-              #         type: number
-              #         description: Longitude
-              #         maximum: 1.8e+2
-              #         minimum: -1.8e+2
-              #       asl:
-              #         type:
-              #         - number
-              #         - 'null'
-              #         description: Meters above Sea-Level
-              #       distanceKm:
-              #         type: number
-              #         description: Kilometer distance from the point
-              #     required:
-              #     - type
-              #     - id
-              #     - name
-              #     - lat
-              #     - lon
-              #     - asl
-              #     - distanceKm
-              #   uniqueItems: true
-              # examples:
-              #   Example Nearest:
-              #     summary: Example Nearest
-              #     description: Example of a point
-              #     value:
-              #     - id: id1
-              #       lat: 4.7558399e+1
-              #       name: name1
-              #       type: type1
-              #       asl: 279
-              #       distanceKm: 0
-              #       lon: 7.57327e+0
-              #     - id: id2
-              #       lat: 0
-              #       name: name2
-              #       type: type2
-              #       asl: null
-              #       distanceKm: 5.3203e+3
-              #       lon: 0
         422:
           content:
             application/json:
